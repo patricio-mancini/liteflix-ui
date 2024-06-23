@@ -10,6 +10,9 @@ const tmdbBaseImgUrl = process.env.TMDB_IMAGE_BASE_URL as string;
 
 export async function fetchFeaturedTitle(): Promise<FeaturedTitle> {
   const res = await fetch(`${tmdbBaseUrl}/movie/now_playing?api_key=${tmdbApiKey}`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch featured title');
+  }
   const data = await res.json();
   const firstMovie = data.results[0];
   return {

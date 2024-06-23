@@ -47,3 +47,5 @@ In the project directory, you can run:
 - `npm start`: Starts the production server after a successful build.
 
 - `npm run lint`: Lints the codebase for coding standards and best practices.
+
+- `npm test`: Runs tests related to the project using Jest.

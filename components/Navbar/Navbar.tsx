@@ -3,7 +3,7 @@
 import styled from '@emotion/styled';
 import { isMobile } from 'react-device-detect';
 import { Theme } from '@/lib/theme';
-import { useScrollPosition } from '../../lib/hooks/useScrollPosition';
+import { useScrollPosition } from '@/lib/hooks/useScrollPosition';
 import MobileNavbar from './Mobile';
 import DesktopNavbar from './Desktop';
 
@@ -19,7 +19,6 @@ const Header = styled.header<{ isScrolled: boolean, theme?: Theme }>`
 
 export default function Navbar() {
   const { isScrolled } = useScrollPosition();
-
   return (
     <Header isScrolled={isScrolled}>
       {isMobile ? <MobileNavbar /> : <DesktopNavbar />}

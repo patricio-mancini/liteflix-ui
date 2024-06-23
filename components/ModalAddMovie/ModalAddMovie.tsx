@@ -40,7 +40,6 @@ export default function ModalAddMovie() {
   };
 
   const handleClose = () => {
-    console.log('handleClose is called');
     toggleModal();
     setIsSuccess(false);
     setFile(null);
