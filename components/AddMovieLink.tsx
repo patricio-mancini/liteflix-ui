@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { useAuth } from '@/lib/context/AuthContext';
 import { useModalAddMovie } from './ModalAddMovie';
 import Text from './Text';

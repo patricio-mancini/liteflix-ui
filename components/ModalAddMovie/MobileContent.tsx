@@ -1,6 +1,6 @@
 'use client'
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import FileUploader from '../FileUploader';
 import Text from '../Text';
 import Input from '../Input';

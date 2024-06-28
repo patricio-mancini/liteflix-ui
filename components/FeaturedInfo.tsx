@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react';
-import styled from "@emotion/styled";
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { FontSize, Platform } from '@/lib/theme';
 import Text from "./Text";
@@ -27,12 +27,12 @@ const MobileContainer = styled.div`
   gap: 16px;
 `;
 
-const H2 = styled.h2<{ isMobile: boolean }>`
+const H2 = styled.h2`
   margin: ${isMobile ? '0' : '24px 0'};
   ${isMobile && 'text-align: center;'}
 `;
 
-const StyledControls = styled.div<{ isMobile: boolean }>`
+const StyledControls = styled.div`
   display: flex;
   flex-flow: row nowrap;
   gap: 24px;
@@ -95,7 +95,7 @@ export function Title({ title }: Readonly<{ title: string }>) {
   }, []);
 
   return (
-    <H2 isMobile={isMobile}>
+    <H2>
       <Text
         platform={platform}
         fontSize={fontSize}
@@ -117,7 +117,7 @@ export function Controls() {
   }, []);
 
   return (
-    <StyledControls isMobile={isMobile}>
+    <StyledControls>
       <Button variant='primary'>
         <span>
           <Icon icon='play' height={14} width={14} alt='Reproducir' />

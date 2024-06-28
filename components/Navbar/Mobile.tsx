@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import LogInLink from '@/components/LogInLink';
 import MenuIconLink from '@/components/MenuIconLink';
 import CloseLink from '@/components/CloseLink';

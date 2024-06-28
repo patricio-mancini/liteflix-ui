@@ -9,8 +9,8 @@ This is an Single Page Application built on `Next.js` v14, leveraging a hybrid r
 - `Next.js` - v14 using the App router for hybrid server-side rendering and client-side rendering.
 - `React` - v18 for building interactive user interfaces.
 - `TypeScript` - for type safety and improved developer experience.
-- `Emotion` - as a CSS-in-JS library for styling components.
-- `react-device-detect` - for responsive design based on the user's device.
+- `Styled-components` - as a CSS-in-JS library for styling components.
+- `React-device-detect` - for responsive design based on the user's device.
 - `Google OAuth2` - for secure authentication and user management.
 
 ## Project Structure

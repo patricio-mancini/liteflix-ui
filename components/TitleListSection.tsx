@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { Categories, Title } from '@/types';
 import TitleList from "@/components/TitleList";
 import CategorySelector from '@/components/CategorySelector';
 
-const Section = styled.div<{ isMobile: boolean }>`
+const Section = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -25,7 +25,7 @@ export default function TitleListSection({ popularList, userTitles }: TitleListS
   const [selectedCategory, setSelectedCategory] = useState<Categories>('Populares');
 
   return (
-    <Section isMobile={isMobile}>
+    <Section>
       <CategorySelector selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
       <TitleList items={selectedCategory === 'Populares' ? popularList : userTitles} />
     </Section>

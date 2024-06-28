@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import LinearGradient from './LinearGradient';
 import { useScrollPosition } from '../lib/hooks/useScrollPosition';

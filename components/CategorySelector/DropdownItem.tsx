@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Platform } from '@/lib/theme';
 import { Categories } from '@/types';
 import Icon from '../Icon';

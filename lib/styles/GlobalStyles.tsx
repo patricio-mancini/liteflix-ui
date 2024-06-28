@@ -1,7 +1,7 @@
 'use client'
 
-import { css, Global } from '@emotion/react';
-import normalize from 'emotion-normalize';
+import { css, createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const styles = css`
   ${normalize}
@@ -62,8 +62,9 @@ const styles = css`
   }
 `;
 
-const globalStyles = (
-  <Global styles={styles} />
-);
+const GlobalStyles = createGlobalStyle`
+  ${styles}
+`;
 
-export default globalStyles;
+export default GlobalStyles;
+

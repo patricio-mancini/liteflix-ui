@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { Theme } from '@/lib/theme';
 import MobileNavbar from '../Navbar/Mobile';
 import Icon from '../Icon';
 
-const DesktopContainer = styled.div<{ theme?: Theme, isVisible: boolean }>`
+const DesktopContainer = styled.div<{ theme?: Theme, $isVisible: boolean }>`
   position: fixed;
-  top: ${({ isVisible }) => (isVisible ? '50%' : '150%')};
+  top: ${({ $isVisible }) => ($isVisible ? '50%' : '150%')};
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -22,10 +22,10 @@ const DesktopContainer = styled.div<{ theme?: Theme, isVisible: boolean }>`
   z-index: 6;
 `;
 
-const MobileContainer = styled.div<{ theme?: Theme, isVisible: boolean }>`
+const MobileContainer = styled.div<{ theme?: Theme, $isVisible: boolean }>`
   position: fixed;
   top: 0;
-  right: ${({ isVisible }) => (isVisible ? '0' : '-100vw')};
+  right: ${({ $isVisible }) => ($isVisible ? '0' : '-100vw')};
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -57,7 +57,7 @@ export default function ModalContainer({ isVisible, onClose, children }: ModalCo
   const Container = isMobile ? MobileContainer : DesktopContainer;
 
   return (
-    <Container isVisible={isVisible}>
+    <Container $isVisible={isVisible}>
       {isMobile ? <MobileNavbar isAddMovieModalOpened onClose={onClose} /> : (
         <CloseButtonContainer onClick={onClose}>
           <Icon icon='close' height={15} width={15} alt="Cerrar" />

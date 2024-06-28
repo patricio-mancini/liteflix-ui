@@ -1,4 +1,6 @@
-import styled from '@emotion/styled';
+'use client'
+
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { Theme } from '@/lib/theme';
 import { useAuth } from '@/lib/context/AuthContext';
@@ -10,10 +12,10 @@ import { Overlay } from '../Overlay';
 import CloseLink from '../CloseLink';
 import MobileNavbar from '../Navbar/Mobile';
 
-const MenuContainer = styled.div<{ theme?: Theme; isVisible: boolean }>`
+const MenuContainer = styled.div<{ theme?: Theme; $isVisible: boolean }>`
   position: fixed;
   top: 0;
-  right: ${({ isVisible }) => (isVisible ? '0' : isMobile ? '-100vw' : '-953px')};
+  right: ${({ $isVisible }) => ($isVisible ? '0' : isMobile ? '-100vw' : '-953px')};
   display: flex;
   flex-flow: column nowrap;
   gap: 85px;
@@ -84,7 +86,7 @@ export default function MenuModal() {
   return (
     <>
       <Overlay isVisible={isMenuOpen} zIndex={4}/>
-      <MenuContainer isVisible={isMenuOpen}>
+      <MenuContainer $isVisible={isMenuOpen}>
         <MenuHeader />
         <MenuContent>
           {

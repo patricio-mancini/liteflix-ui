@@ -1,6 +1,6 @@
 'use client';
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const GradientContainer = styled.div`
   position: absolute;

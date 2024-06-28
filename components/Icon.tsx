@@ -1,5 +1,5 @@
 import Image, { ImageProps } from 'next/image';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { iconMap } from '@/lib/icons';
 
 interface IconProps extends Omit<ImageProps, 'src'> {

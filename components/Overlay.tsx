@@ -1,20 +1,20 @@
 'use client'
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Theme } from '@/lib/theme';
 import { useState, useEffect } from 'react';
 
-const OverlayWrapper = styled.div<{ theme?: Theme, isVisible: boolean, isRendering: boolean, zIndex: number }>`
+const OverlayWrapper = styled.div<{ theme?: Theme, $isVisible: boolean, $isRendering: boolean, $zIndex: number }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  visibility: ${({ isRendering }) => (isRendering ? 'visible' : 'hidden')};
+  visibility: ${({ $isRendering }) => ($isRendering ? 'visible' : 'hidden')};
   background-color: ${({ theme }) => theme.colors.primaryTransparent(0.8)};
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transition: opacity 0.4s;
-  z-index: ${({ zIndex }) => zIndex};
+  z-index: ${({ $zIndex }) => $zIndex};
 `;
 
 interface OverlayProps {
@@ -35,5 +35,5 @@ export function Overlay({ isVisible, zIndex = 4 }: OverlayProps) {
     return () => clearTimeout(timeoutId);
   }, [isVisible]);
 
-  return <OverlayWrapper isVisible={isVisible} isRendering={isRendering} zIndex={zIndex} />;
+  return <OverlayWrapper $isVisible={isVisible} $isRendering={isRendering} $zIndex={zIndex} />;
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from "next/image";
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Icon from "./Icon";
 import Text from './Text';
 import { Theme } from '@/lib/theme';
@@ -19,14 +19,14 @@ const StyledImage = styled(Image)`
   border-radius: 4px;
 `;
 
-const Gradient = styled.div<{ theme?: Theme, isHovered: boolean }>`
+const Gradient = styled.div<{ theme?: Theme, $isHovered: boolean }>`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 1;
   transition: background 0.5s;
-  ${({ isHovered, theme }) => isHovered ?
+  ${({ $isHovered, theme }) => $isHovered ?
     `background: ${theme.colors.primaryTransparent(0.5)}; height: 100%;` :
     `background: linear-gradient(180deg, rgba(0, 0, 0, 0) calc(100% - 100px), rgba(0, 0, 0, .8)); height: 100%;`
   };
@@ -100,8 +100,8 @@ const VoteInfo = styled.div`
   gap: 6px;
 `;
 
-const PlayIconContainer = styled.span<{ isRowPlayHovered: boolean }>`
-  animation-name: ${({ isRowPlayHovered }) => (isRowPlayHovered ? 'fade-in' : 'fade-out')};
+const PlayIconContainer = styled.span<{ $isRowPlayHovered: boolean }>`
+  animation-name: ${({ $isRowPlayHovered }) => ($isRowPlayHovered ? 'fade-in' : 'fade-out')};
   animation-timing-function: ease-out;
   animation-duration: 450ms;
   animation-fill-mode: both;
@@ -154,12 +154,12 @@ export default function TitleCard({
         fill
         sizes="(max-width: 768px) 30vw, (max-width: 1200px) 20vw, 15vw"
       />
-      <Gradient isHovered={isHovered} />
+      <Gradient $isHovered={isHovered} />
       {!isHovered || !year || !voteAverage ? (
         <>
           <PlayOverlay>
             <PlayIconContainer
-              isRowPlayHovered={isRowPlayHovered}
+              $isRowPlayHovered={isRowPlayHovered}
               onMouseEnter={() => setIsRowPlayHovered(true)}
               onMouseLeave={() => setIsRowPlayHovered(false)}
             >
@@ -188,7 +188,7 @@ export default function TitleCard({
         <HoverOverlay>
           <TitleRow>
             <PlayIconContainer
-              isRowPlayHovered={isRowPlayHovered}
+              $isRowPlayHovered={isRowPlayHovered}
               onMouseEnter={() => setIsRowPlayHovered(true)}
               onMouseLeave={() => setIsRowPlayHovered(false)}
             >

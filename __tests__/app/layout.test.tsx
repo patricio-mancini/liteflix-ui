@@ -5,7 +5,7 @@ import RootLayout, { metadata, viewport } from '../../app/layout';
 jest.mock('@/components/providers', () => ({ children }: { children: React.ReactNode }) => (
   <div>{children}</div>
 ));
-jest.mock('@/lib/globalStyles', () => (
+jest.mock('@/lib/styles/GlobalStyles', () => () => (
   <head>
     <style>{`.global {}`}</style>
   </head>

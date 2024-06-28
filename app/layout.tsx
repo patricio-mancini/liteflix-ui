@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Providers from "@/components/providers";
-import globalStyles from '@/lib/globalStyles';
+import GlobalStyles from "@/lib/styles/GlobalStyles";
 
 export const metadata: Metadata = {
   title: "Home - Liteflix",
@@ -20,9 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {globalStyles}
       <body>
         <Providers>
+          <GlobalStyles />
           {children}
         </Providers>
       </body>

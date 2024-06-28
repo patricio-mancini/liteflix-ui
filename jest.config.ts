@@ -30,10 +30,6 @@ const config: Config = {
   moduleNameMapper: { "^@/(.*)$": "<rootDir>/$1" },
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-
-  transformIgnorePatterns: [
-    '/node_modules/(?!@emotion/styled/.*)',
-  ],
 };
 
 export default createJestConfig(config);

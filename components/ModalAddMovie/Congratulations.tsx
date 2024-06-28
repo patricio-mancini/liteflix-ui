@@ -1,6 +1,6 @@
 'use client';
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import Logo from '../Logo';
 import Text from '../Text';

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { Theme } from '@/lib/theme';
 import { Categories } from '@/types';
@@ -25,7 +25,7 @@ const IconContainer = styled.span`
   line-height: 14px;
 `;
 
-const DropdownMenu = styled.div<{ theme?: Theme; isVisible: boolean }>`
+const DropdownMenu = styled.div<{ theme?: Theme; $isVisible: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: absolute;
@@ -38,7 +38,7 @@ const DropdownMenu = styled.div<{ theme?: Theme; isVisible: boolean }>`
   width: 241px;
   height: 102px;
   box-sizing: border-box;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transition: opacity 0.4s;
   &::after {
     content: '';
@@ -112,7 +112,7 @@ export default function Dropdown({
           <Icon icon="arrowDown" height={8} width={13} alt="Desplegar Lista" />
         </IconContainer>
       </SelectorContainer>
-      <DropdownMenu isVisible={isDropdownVisible}>
+      <DropdownMenu $isVisible={isDropdownVisible}>
         {categories.map((category) => (
           <DropdownItem
             key={category}

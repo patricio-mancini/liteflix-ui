@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Icon from './Icon';
 import { useAuth } from '@/lib/context/AuthContext';
 

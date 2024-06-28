@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import RightMenu from '../RightMenu';
 import AddMovieLink from '../AddMovieLink';
 import Logo from '../Logo';

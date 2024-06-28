@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { isMobile } from 'react-device-detect';
 import { Theme } from '@/lib/theme';
 import { FontSize, Platform } from '@/lib/theme';

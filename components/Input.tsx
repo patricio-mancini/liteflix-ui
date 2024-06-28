@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Theme, FontSize, Platform } from '@/lib/theme';
 
 interface InputProps {
@@ -13,6 +13,15 @@ interface InputProps {
   onChange: (value: string) => void
 }
 
+interface StyledInputProps {
+  id: string
+  value: string
+  $platform?: Platform
+  $fontSize?: FontSize
+  $fontWeight?: string | number
+  $letterSpacing?: string
+}
+
 const InputContainer = styled.div<{ theme?: Theme }>`
   width: 248px;
   height: 24px;
@@ -21,7 +30,7 @@ const InputContainer = styled.div<{ theme?: Theme }>`
   padding-bottom: 8px;
 `;
 
-const StyledInput = styled.input<Omit<InputProps, 'onChange' | 'placeholder'> & { theme?: Theme }>`
+const StyledInput = styled.input<StyledInputProps & { theme?: Theme }>`
   width: 100%;
   height: 100%;
   padding: 0;
@@ -34,22 +43,22 @@ const StyledInput = styled.input<Omit<InputProps, 'onChange' | 'placeholder'> & 
   top: 0;
   left: 0;
   color: ${({ theme }) => theme.colors.secondary};
-  ${({ platform, fontSize, theme }) => 
-    platform && 
-    fontSize && 
-    fontSize in theme.fontSizes[platform] && 
-    `font-size: ${(theme.fontSizes[platform] as any)[fontSize]}`};
+  ${({ $platform, $fontSize, theme }) => 
+    $platform && 
+    $fontSize && 
+    $fontSize in theme.fontSizes[$platform] && 
+    `font-size: ${(theme.fontSizes[$platform] as any)[$fontSize]}`};
   font-weight: 700;
-  letter-spacing: ${({ letterSpacing }) => letterSpacing};
+  letter-spacing: ${({ $letterSpacing }) => $letterSpacing};
   ::placeholder {
     color: ${({ theme }) => theme.colors.secondary};
-    ${({ platform, fontSize, theme }) => 
-      platform && 
-      fontSize && 
-      fontSize in theme.fontSizes[platform] && 
-      `font-size: ${(theme.fontSizes[platform] as any)[fontSize]}`};
+    ${({ $platform, $fontSize, theme }) => 
+      $platform && 
+      $fontSize && 
+      $fontSize in theme.fontSizes[$platform] && 
+      `font-size: ${(theme.fontSizes[$platform] as any)[$fontSize]}`};
     font-weight: 300;
-    letter-spacing: ${({ letterSpacing }) => letterSpacing};
+    letter-spacing: ${({ $letterSpacing }) => $letterSpacing};
   }
 `;
 
@@ -80,9 +89,9 @@ export default function Input({
         value={inputValue}
         onChange={handleChange}
         placeholder={placeholder}
-        platform={platform}
-        fontSize={fontSize}
-        letterSpacing={letterSpacing}
+        $platform={platform}
+        $fontSize={fontSize}
+        $letterSpacing={letterSpacing}
       />
     </InputContainer>
   );
